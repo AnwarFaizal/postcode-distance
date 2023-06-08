@@ -1,0 +1,4 @@
+
+
+-- Script to import
+CREATE TABLE postcode_location AS SELECT * FROM csvread('c:\data\ukpostcodes.csv')
