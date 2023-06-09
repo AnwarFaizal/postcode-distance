@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "db90311f-70a7-48fc-a1be-9b5514bfa00a",
+		"name": "PostcodeDistance",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2908228"
+	},
+	"item": [
+		{
+			"name": "about",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/postcode",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"postcode"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Single PostcodeLocation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/postcode/location?postcode=AB16 6SZ",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"postcode",
+						"location"
+					],
+					"query": [
+						{
+							"key": "postcode",
+							"value": "AB16 6SZ"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Default PostcodeLocation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/postcode/location/default",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"postcode",
+						"location",
+						"default"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update PostcodeLocation",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"postcode\": \"AB16 6SZ\",\r\n        \"latitude\": 57.258742,\r\n        \"longitude\": -2.165215\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/postcode",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"postcode"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DistanceBetweenPostcodes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/postcode/distance?postcodeA=AB12 5GL&postcodeB=L2 2HF",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"postcode",
+						"distance"
+					],
+					"query": [
+						{
+							"key": "postcodeA",
+							"value": "AB12 5GL"
+						},
+						{
+							"key": "postcodeB",
+							"value": "L2 2HF"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "p@ssw0rd",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "user1",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

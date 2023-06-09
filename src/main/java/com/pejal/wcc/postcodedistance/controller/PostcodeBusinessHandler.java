@@ -30,6 +30,11 @@ public class PostcodeBusinessHandler {
         return postcodeRepository.count();
     }
     
+    /**
+     * Retrieves the postcode location based on the postcode string provided.
+     * @param postcode UK postcode
+     * @return response payload of the postcode location info.
+     */
     public List<PostcodeResponse> getPostcode(String postcode){
         return mapper.map(postcodeRepository.findByPostcode(postcode));
     }
@@ -62,6 +67,13 @@ public class PostcodeBusinessHandler {
         return distanceResponse;
     }
     
+    /**
+     * Retrieves both postcode location info, based on the postcode string provided. 
+     * It then calls for the actual calculation and processing to return the distance info.
+     * @param postcodeA
+     * @param postcodeB
+     * @return 
+     */
     public DistanceResponse getDistanceBetween(String postcodeA, String postcodeB) {
         PostcodeLocation locationA = getSinglePostcodeLocationFrom(postcodeRepository.findByPostcode(postcodeA));
         PostcodeLocation locationB = getSinglePostcodeLocationFrom(postcodeRepository.findByPostcode(postcodeB));
@@ -72,6 +84,14 @@ public class PostcodeBusinessHandler {
         return formatToDistanceResponse(locationA, locationB);
     }
     
+    /**
+     * Processes the two geo location to get the distance between them. If one
+     * or both of the location is invalid (not in the DB), it will replace it with
+     * a default non-location and return a 0.0 distance. 
+     * @param locationA
+     * @param locationB
+     * @return distance in KM, 0.0 if any of the postcodes are invalid.
+     */
     public DistanceResponse formatToDistanceResponse(PostcodeLocation locationA, PostcodeLocation locationB) {
         if (locationA != null && locationB != null) {
             return getDistanceBetween(locationA, locationB);
@@ -107,6 +127,11 @@ public class PostcodeBusinessHandler {
                     .build();
     }
 
+    /**
+     * Updates the latitude and longitude of the postcode location.
+     * @param request
+     * @return 
+     */
     public PostcodeResponse updatePostcodeLocation(PostcodeResponse request) {
         postcodeRepository
                 .findByPostcode(request.getPostcode())

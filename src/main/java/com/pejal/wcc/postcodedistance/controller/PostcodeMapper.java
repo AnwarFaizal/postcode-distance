@@ -9,7 +9,7 @@ import java.util.List;
 import org.mapstruct.Mapper;
 
 /**
- *
+ * Maps the postcode location entity to the postcode response payload.
  * @author pejalhebat
  */
 @Mapper
