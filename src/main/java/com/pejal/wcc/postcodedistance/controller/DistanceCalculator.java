@@ -7,7 +7,8 @@ package com.pejal.wcc.postcodedistance.controller;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- *
+ * Calculates the distance (straight line) between two geo-locations. 
+ * Returns in kilimeters. It uses the haversine method.
  * @author pejalhebat
  */
 @Slf4j

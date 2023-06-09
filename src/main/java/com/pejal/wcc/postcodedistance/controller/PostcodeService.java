@@ -35,11 +35,20 @@ public class PostcodeService {
         return "Postcode distance service";
     }
     
+    /**
+     * Retrieves the number of entries in postcode_location table.
+     * @return 
+     */
     @GetMapping("/count")
     public Long getCount() {
         return postcodeHandler.getLocationCount();
     }
     
+    /**
+     * Retrieves the geo-location info of the postcode given.
+     * @param postcode
+     * @return 
+     */
     @GetMapping("/location")
     public List<PostcodeResponse> getPostcodeLocation(@RequestParam String postcode) {
         log.info("postcode param: " + postcode);
@@ -64,12 +73,23 @@ public class PostcodeService {
         return postcodeHandler.getDefaultPostcode();
     }
     
+    /**
+     * Calculates the distance between two postcodes, in kilometers.
+     * @param postcodeA
+     * @param postcodeB
+     * @return 
+     */
     @GetMapping("/distance")
     public DistanceResponse getDistanceBetween(
             @RequestParam String postcodeA, @RequestParam String postcodeB) {
         return postcodeHandler.getDistanceBetween(postcodeA, postcodeB);
     }
     
+    /**
+     * Updates the postcode geo-location.
+     * @param request
+     * @return 
+     */
     @PutMapping
     public PostcodeResponse updatePostcodeLocation(@RequestBody PostcodeResponse request) {
         return postcodeHandler.updatePostcodeLocation(request);

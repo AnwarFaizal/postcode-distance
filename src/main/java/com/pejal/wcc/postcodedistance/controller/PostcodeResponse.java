@@ -10,7 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- *
+ * Payload to be transmitted via web service.
  * @author pejalhebat
  */
 @Builder

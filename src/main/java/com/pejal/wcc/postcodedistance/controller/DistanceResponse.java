@@ -8,7 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 
 /**
- *
+ * The response payload for distance calculation between two postcodes. 
  * @author pejalhebat
  */
 @Data
