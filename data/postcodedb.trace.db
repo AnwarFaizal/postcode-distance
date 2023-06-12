@@ -1,0 +1,3 @@
+2023-06-12 08:59:43 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "POSTCODE_LOCATION" not found (this database is empty); SQL statement:
+select count(*) from postcode_location p1_0 [42104-214]
