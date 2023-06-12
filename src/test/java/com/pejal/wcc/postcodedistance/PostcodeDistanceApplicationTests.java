@@ -6,6 +6,7 @@ import io.restassured.http.ContentType;
 import static org.hamcrest.CoreMatchers.equalTo;
 //import static org.hamcrest.CoreMatchers.;
 import static org.hamcrest.number.IsCloseTo.closeTo;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
@@ -26,6 +27,7 @@ class PostcodeDistanceApplicationTests {
         RestAssured.port = port;
     }
     
+    // @Disabled("For first time build")
     @Test
     void checkLocationCount() {
         given().auth().preemptive().basic("user1", "p@ssw0rd")
@@ -34,6 +36,8 @@ class PostcodeDistanceApplicationTests {
                 .then()
                 .assertThat().log().all().statusCode(200);
     }
+    
+    // @Disabled("For first time build")
     @Test
     void checkDistanceBetweenTwoPostcodes() {
         given().auth().preemptive().basic("user1", "p@ssw0rd")
